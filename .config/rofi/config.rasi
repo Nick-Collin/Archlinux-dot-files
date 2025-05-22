@@ -1,0 +1,81 @@
+/* Nord Color Scheme */
+* {
+    background:     #2E3440DD;  /* Dark blue-gray with transparency */
+    background-alt: #3B4252;
+    foreground:     #D8DEE9;
+    selected:       #81A1C1;
+    active:         #88C0D0;
+    urgent:         #BF616A;
+    border:         #4C566A;
+}
+
+configuration {
+    font: "JetBrains Mono 12";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    terminal: "st";
+    width: 35%;
+    location: 0;
+    y-offset: 50;
+    x-offset: -20;
+}
+
+window {
+    transparency: "real";
+    background-color: @background;
+    border:  2px;
+    border-radius: 12px;
+    border-color: @border;
+    padding: 15px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    spacing: 10px;
+    padding: 8px;
+    background-color: @background-alt;
+    border-radius: 8px;
+}
+
+prompt {
+    text-color: @active;
+}
+
+entry {
+    text-color: @foreground;
+}
+
+listview {
+    padding: 8px 0px;
+    spacing: 6px;
+    dynamic: true;
+    border-radius: 8px;
+}
+
+element {
+    padding: 6px;
+    text-color: @foreground;
+    border-radius: 6px;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @background-alt;
+    border: 0;
+}
+
+element-icon {
+    size: 1.2em;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+/*
+Aly changes in config with: 
+
+    rofi -dump-config > ~/.config/rofi/new-config.rasi  # Export current config
+    killall rofi  # Restart rofi processes
+*/
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
